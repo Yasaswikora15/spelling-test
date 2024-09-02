@@ -1,0 +1,155 @@
+/* General Styles */
+.App {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0078d7; /* Azure Blue background color */
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  /* Header Styles */
+  h1 {
+    color: #ffffff; /* Pure white text color for contrast */
+    text-align: center;
+    margin-bottom: 20px;
+    animation: bounceIn 0.7s ease-out;
+  }
+  
+  /* Word Input Styles */
+  .word-input {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #fff;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Enhanced shadow for word input */
+    animation: fadeInUp 0.5s ease-out;
+  }
+  
+  /* Label Styles */
+  label {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  /* Input Styles */
+  input {
+    margin-left: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 100%;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    animation: glow 1.5s infinite; /* Glowing animation for inputs */
+    background: linear-gradient(145deg, #e0e0e0, #ffffff); /* Gradient background */
+  }
+  
+  input:focus {
+    border-color: #004a8f; /* Darker blue border on focus */
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 74, 143, 0.5); /* Brighter shadow on focus */
+  }
+  
+  /* Button Styles */
+  button {
+    background-color: #004a8f; /* Dark Azure background */
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    animation: pulse 1s infinite; /* Pulse animation for button */
+    background: linear-gradient(145deg, #004a8f, #002b5e); /* Gradient deep blue background */
+  }
+  
+  button:hover {
+    background-color: #002b5e; /* Darker shade on hover */
+    transform: scale(1.07);
+  }
+  
+  /* Results Styles */
+  .results {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+    color: #721c24;
+    text-align: center;
+    animation: popUp 0.7s ease-out; /* Innovative pop-up animation */
+  }
+  
+  /* Card Styles */
+  .card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: float 2s ease-in-out infinite; /* Floating animation */
+  }
+  
+  .card:hover {
+    transform: translateY(-10px); /* Lift effect on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
+  }
+  
+  /* Keyframes for Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideIn {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes bounceIn {
+    0% { opacity: 0; transform: scale(0.3); }
+    50% { opacity: 1; transform: scale(1.1); }
+    70% { transform: scale(0.9); }
+    100% { transform: scale(1); }
+  }
+  
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+  
+  @keyframes glow {
+    0%, 100% { box-shadow: 0 0 10px rgba(0, 120, 215, 0.3); }
+    50% { box-shadow: 0 0 20px rgba(0, 120, 215, 0.5); }
+  }
+  
+  @keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+  }
+  
+  @keyframes popUp {
+    0% { transform: scale(0.7); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: scale(1); }
+  }
+  
+  @keyframes slideInFromBottom {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }

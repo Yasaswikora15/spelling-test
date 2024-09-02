@@ -1,30 +1,66 @@
-import { useState } from 'react';
-import { hello_backend } from 'declarations/hello_backend';
+import React, { useState } from 'react';
+import './APP.css';
+
+const words = [
+  { id: 1, word: 'accommodate' },
+  { id: 2, word: 'definitely' },
+  { id: 3, word: 'embarrassment' },
+  { id: 4, word: 'government' },
+  { id: 5, word: 'independent' }
+];
 
 function App() {
-  const [greeting, setGreeting] = useState('');
+  const [answers, setAnswers] = useState({});
+  const [submitted, setSubmitted] = useState(false);
+  const [score, setScore] = useState(0);
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    const name = event.target.elements.name.value;
-    hello_backend.greet(name).then((greeting) => {
-      setGreeting(greeting);
+  const handleChange = (event, id) => {
+    setAnswers({
+      ...answers,
+      [id]: event.target.value
     });
-    return false;
-  }
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    let correctCount = 0;
+
+    words.forEach(word => {
+      if (answers[word.id] && answers[word.id].toLowerCase() === word.word.toLowerCase()) {
+        correctCount++;
+      }
+    });
+
+    setScore(correctCount);
+    setSubmitted(true);
+  };
 
   return (
-    <main>
-      <img src="/logo2.svg" alt="DFINITY logo" />
-      <br />
-      <br />
-      <form action="#" onSubmit={handleSubmit}>
-        <label htmlFor="name">Enter your name: &nbsp;</label>
-        <input id="name" alt="Name" type="text" />
-        <button type="submit">Click Me!</button>
+    <div className="App">
+      <h1>Spelling Test</h1>
+      <form onSubmit={handleSubmit}>
+        {words.map(word => (
+          <div key={word.id} className="word-input">
+            <label>
+              Spell the word: <strong>{word.word}</strong>
+              <input
+                type="text"
+                onChange={(e) => handleChange(e, word.id)}
+                value={answers[word.id] || ''}
+              />
+            </label>
+          </div>
+        ))}
+        <button type="submit">Submit</button>
       </form>
-      <section id="greeting">{greeting}</section>
-    </main>
+
+      {submitted && (
+        <div className="results">
+          <h2>Results</h2>
+          <p>You spelled {score} out of {words.length} words correctly!</p>
+        </div>
+      )}
+    </div>
   );
 }
 
